@@ -13,18 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Sys Info
+      - name: system bootstrap
         run: |
           bash ci/deb_install.sh
 
-      - name: Compile Rust
+      - name: clone private repo and run
         run: |
           export PATH="$HOME/.cargo/bin:$PATH"
           cargo --version
-
-      - name: Try clone private repo
-        run: |
           git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/software-development/tradelog_reader_rust.git
+          pwd
           cd tradelog_reader_rust
           pwd
           ls 
