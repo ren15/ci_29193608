@@ -18,16 +18,13 @@ jobs:
           bash ci/deb_install.sh
 
       - name: clone private repo and run
+        shell: bash
         run: |
-          echo $HOME/.cargo/env
-          ls $HOME/.cargo/env
           source $HOME/.cargo/env
-          cargo --version
           git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/software-development/tradelog_reader_rust.git
           cd tradelog_reader_rust
           git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/datalake/tradelog_examples.git
-          pwd
           make run
-          bash -c "make diff"
+          make diff
 
 
