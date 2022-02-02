@@ -1,0 +1,28 @@
+name: ci
+
+on: push
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  run:
+    runs-on: ubuntu-20.04
+    container: debian:testing
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sys Info
+        run: |
+          bash ci/deb_install.sh
+
+      - name: Compile Rust
+        run: |
+          PATH="$HOME/.cargo/bin:$PATH"
+          cargo --version
+
+      - name: Compile Rust
+        run: |
+          cargo --version
+
