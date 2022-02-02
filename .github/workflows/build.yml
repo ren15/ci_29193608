@@ -25,6 +25,6 @@ jobs:
           cd tradelog_reader_rust
           git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/datalake/tradelog_examples.git
           make run
-          make diff
+          bash -c "make diff"
 
 
