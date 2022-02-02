@@ -19,10 +19,16 @@ jobs:
 
       - name: Compile Rust
         run: |
-          PATH="$HOME/.cargo/bin:$PATH"
+          export PATH="$HOME/.cargo/bin:$PATH"
           cargo --version
 
       - name: Compile Rust
         run: |
           cargo --version
+
+      - name: Try clone private repo
+        run: |
+          git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/software-development/tradelog_reader_rust.git
+          ls tradelog_reader_rust
+
 
