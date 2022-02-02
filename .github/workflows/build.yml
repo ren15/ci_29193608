@@ -25,6 +25,13 @@ jobs:
       - name: Try clone private repo
         run: |
           git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/software-development/tradelog_reader_rust.git
-          ls tradelog_reader_rust
+          cd tradelog_reader_rust
+          pwd
+          ls 
+          git clone https://oauth2:${{ secrets.GITLAB_READ_TOKEN }}@gitlab.com/ren15/datalake/tradelog_examples.git
+          pwd
+          ls
+          make run
+          make diff
 
 
