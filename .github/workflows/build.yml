@@ -30,6 +30,7 @@ jobs:
           source $HOME/.cargo/env
           cd tradelog_reader_rust
           make run
+          make run
           make diff
 
 
