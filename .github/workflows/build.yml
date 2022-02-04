@@ -33,5 +33,8 @@ jobs:
           make run
           make run
           make diff
+          make run_par
+          make run_par
+          make diff
 
 
